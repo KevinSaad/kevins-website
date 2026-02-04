@@ -9,11 +9,11 @@ let step = 0;
 const story = [
   "Hey birdie 🐦",
   "I know that we've been talking only for a short time…",
-  "But quite the date is coming up 💕",
+  "But quite the important date is coming up 💕",
   "I know what you're thinking…",
-  "It's quite ballsy to ask you out on a date on that specific day 😏",
-  "But hey, our whole time talking is the definition of being ballsy, cute, and honest 💖",
-  "And it can't get much cuter than having our first date on Valentine's… 🌹",
+  "It's quite ballsy to ask you out on a date on that specific day",
+  "But hey, our whole time talking is the definition of being ballsy, honest, and veeery cute 💖",
+  "And it can't get much ballsier and cuter than having our first date on Valentine's… 🌹",
   "So, without further ado…"
 ];
 
@@ -21,12 +21,12 @@ const story = [
 const buttonTexts = [
   "Hello Kev 👋",
   "Go on... 💭",
-  "Tell me more 💝",
-  "I'm listening 👀",
-  "Oh really? 😏",
-  "I like where this is going 💕",
-  "Keep going... 🌹",
-  "What's next? 💖"
+  "What are you talking about",
+  "Are... are you talking about the 14th?",
+  "Hmmmm",
+  "You're going to give me the ick Kev 🥲",
+  "Keep going... ",
+  "What's next?"
 ];
 
 text.innerText = story[step];
@@ -54,7 +54,7 @@ nextBtn.addEventListener("click", () => {
 yesBtn.addEventListener("click", () => {
   document.body.innerHTML = `
     <div class="container final-message">
-      <h1>YAY!!! 💖🥰</h1>
+      <h1>YAY!!! 💖</h1>
       <p>You just made me the happiest person ❤️</p>
     </div>
   `;
@@ -70,10 +70,12 @@ noBtn.addEventListener("click", () => {
   } else if (noClickCount === 2) {
     response.innerText = "Please reconsider 💕";
   } else if (noClickCount === 3) {
+    response.innerText = "Come on birdie";
+  } else if (noClickCount === 4) {
     response.innerText = "Okay I'm warning you, press no one more time and you won't be able to catch me";
   } else {
     // Make the no button run away!
-    response.innerText = "You can't catch me! 😜";
+    response.innerText = "Wooosh! You can't catch me!";
     moveNoButton();
   }
 });
