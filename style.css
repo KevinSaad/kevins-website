@@ -1,0 +1,35 @@
+body {
+  background: #ffe6eb;
+  font-family: "Arial", sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  text-align: center;
+  max-width: 500px;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 16px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+#yes {
+  background-color: #ff4d6d;
+  color: white;
+}
+
+#no {
+  background-color: #ccc;
+}
+
+.hidden {
+  display: none;
+}
