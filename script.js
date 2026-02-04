@@ -17,7 +17,6 @@ const story = [
   "So, without further ado…"
 ];
 
-// Custom button text for each slide
 const buttonTexts = [
   "Hello Kev 👋",
   "Go on... 💭",
@@ -37,15 +36,13 @@ nextBtn.addEventListener("click", () => {
 
   if (step < story.length) {
     text.innerText = story[step];
-    nextBtn.innerText = buttonTexts[step]; // Update button text
+    nextBtn.innerText = buttonTexts[step];
   } else {
-    // Show the question
     text.innerText = "Will you be my Valentine? 💘";
     nextBtn.classList.add("hidden");
     yesBtn.classList.remove("hidden");
     noBtn.classList.remove("hidden");
     
-    // Set initial position for buttons to be relative to container
     yesBtn.style.position = "relative";
     noBtn.style.position = "relative";
   }
@@ -78,7 +75,6 @@ noBtn.addEventListener("click", () => {
     response.innerText = "Okay I'm warning you, press no one more time and you won't be able to catch me";
     growYesButton();
   } else {
-    // Make the no button run away!
     response.innerText = "Wooosh! You can't catch me!";
     growYesButton();
     moveNoButton();
@@ -86,12 +82,10 @@ noBtn.addEventListener("click", () => {
 });
 
 function growYesButton() {
-  // Increase the Yes button size based on how many times No was clicked
-  const newScale = 1 + (noClickCount * 0.15); // Grows by 15% each time
+  const newScale = 1 + (noClickCount * 0.15);
   yesBtn.style.transform = `scale(${newScale})`;
 }
 
-// Also move on hover after the 4th click
 noBtn.addEventListener("mouseenter", () => {
   if (noClickCount >= 4) {
     moveNoButton();
@@ -99,26 +93,21 @@ noBtn.addEventListener("mouseenter", () => {
 });
 
 function moveNoButton() {
-  // Use the center of the screen/viewport
   const screenCenterX = window.innerWidth / 2;
   const screenCenterY = window.innerHeight / 2;
   
-  // Maximum distance from center (100px box around center)
   const maxOffset = 100;
   
-  // Random offset from center
   const offsetX = (Math.random() * (maxOffset * 2)) - maxOffset;
   const offsetY = (Math.random() * (maxOffset * 2)) - maxOffset;
   
-  // Calculate final position for No button
   const finalX = screenCenterX + offsetX;
   const finalY = screenCenterY + offsetY;
   
-  // Apply position
   noBtn.style.position = "fixed";
   noBtn.style.left = finalX + "px";
   noBtn.style.top = finalY + "px";
-  noBtn.style.transform = "translate(-50%, -50%)"; // Center the button on the coordinates
+  noBtn.style.transform = "translate(-50%, -50%)";
   noBtn.style.margin = "0";
   noBtn.style.zIndex = "1000";
 }
