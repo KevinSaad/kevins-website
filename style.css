@@ -7,11 +7,12 @@ body {
   background-repeat: no-repeat; /* Prevents image repetition */
   background-attachment: fixed; /* Keeps background fixed when scrolling */
   
-  font-family: "Arial", sans-serif;
+  font-family: 'Quicksand', sans-serif; /* Cute rounded font */
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0;
 }
 
 body::before {
@@ -30,15 +31,36 @@ body::before {
   max-width: 500px;
   position: relative;
   z-index: 1; /* Ensures content appears above the overlay */
+  background: rgba(255, 255, 255, 0.85); /* Semi-transparent white background */
+  padding: 40px 50px;
+  border-radius: 25px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(5px); /* Adds a nice blur effect */
+}
+
+#text {
+  font-size: 1.8rem; /* Bigger text */
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  font-weight: 500;
 }
 
 button {
-  padding: 10px 20px;
+  padding: 12px 28px;
   margin: 10px;
-  font-size: 16px;
-  border-radius: 20px;
+  font-size: 18px;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+  border-radius: 25px;
   border: none;
   cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 #yes {
@@ -48,8 +70,22 @@ button {
 
 #no {
   background-color: #ccc;
+  transition: all 0.3s ease; /* Smooth movement animation */
 }
 
 .hidden {
   display: none;
+}
+
+/* Final message styling */
+.final-message h1 {
+  font-size: 2rem;
+  color: #ff4d6d;
+  margin-bottom: 15px;
+}
+
+.final-message p {
+  font-size: 1.8rem;
+  color: #333;
+  line-height: 1.6;
 }
