@@ -67,18 +67,29 @@ noBtn.addEventListener("click", () => {
   
   if (noClickCount === 1) {
     response.innerText = "Are you sure? 🥺";
+    growYesButton();
   } else if (noClickCount === 2) {
     response.innerText = "Please reconsider 💕";
+    growYesButton();
   } else if (noClickCount === 3) {
     response.innerText = "Come on birdie";
+    growYesButton();
   } else if (noClickCount === 4) {
     response.innerText = "Okay I'm warning you, press no one more time and you won't be able to catch me";
+    growYesButton();
   } else {
     // Make the no button run away!
     response.innerText = "Wooosh! You can't catch me!";
+    growYesButton();
     moveNoButton();
   }
 });
+
+function growYesButton() {
+  // Increase the Yes button size based on how many times No was clicked
+  const newScale = 1 + (noClickCount * 0.15); // Grows by 15% each time
+  yesBtn.style.transform = `scale(${newScale})`;
+}
 
 // Also move on hover after the 4th click
 noBtn.addEventListener("mouseenter", () => {
