@@ -73,32 +73,39 @@ noBtn.addEventListener("click", () => {
     response.innerText = "Okay I'm warning you, press no one more time and you won't be able to catch me";
   } else {
     // Make the no button run away!
-    response.innerText = "You can't catch me!";
+    response.innerText = "You can't catch me! 😜";
+    moveNoButton();
+  }
+});
+
+// Also move on hover after the 4th click
+noBtn.addEventListener("mouseenter", () => {
+  if (noClickCount >= 4) {
     moveNoButton();
   }
 });
 
 function moveNoButton() {
-  // Make button position fixed so it can move anywhere on screen
-  noBtn.style.position = "fixed";
-  noBtn.style.zIndex = "1000";
-  noBtn.style.margin = "0"; // Remove any margin
+  // Use the center of the screen/viewport
+  const screenCenterX = window.innerWidth / 2;
+  const screenCenterY = window.innerHeight / 2;
   
-  // Get the actual center of the viewport
-  const centerX = window.innerWidth / 2;
-  const centerY = window.innerHeight / 2;
-  
-  // Maximum distance from center (50px box)
+  // Maximum distance from center (100px box around center)
   const maxOffset = 100;
   
-  // Random offset from center (-50 to +50 for both X and Y)
+  // Random offset from center
   const offsetX = (Math.random() * (maxOffset * 2)) - maxOffset;
   const offsetY = (Math.random() * (maxOffset * 2)) - maxOffset;
   
-  // Calculate final position (center + offset - half button width/height to center the button)
-  const randomX = centerX + offsetX - (noBtn.offsetWidth / 2);
-  const randomY = centerY + offsetY - (noBtn.offsetHeight / 2);
+  // Calculate final position for No button
+  const finalX = screenCenterX + offsetX;
+  const finalY = screenCenterY + offsetY;
   
-  noBtn.style.left = randomX + "px";
-  noBtn.style.top = randomY + "px";
+  // Apply position
+  noBtn.style.position = "fixed";
+  noBtn.style.left = finalX + "px";
+  noBtn.style.top = finalY + "px";
+  noBtn.style.transform = "translate(-50%, -50%)"; // Center the button on the coordinates
+  noBtn.style.margin = "0";
+  noBtn.style.zIndex = "1000";
 }
